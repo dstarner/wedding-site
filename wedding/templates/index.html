@@ -1,0 +1,854 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+     	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+     	<meta name="description" content="">
+      	<meta name="author" content="themeforest.net/user/doubleeight/portfolio">
+      	<title>Turning the Korner</title>
+        
+        <link rel="icon" href="images/favicon.jpg">
+        <!-- Bootstrap -->
+    	<link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}" type="text/css" media="screen" />
+        <!-- Pace -->
+        <link rel="stylesheet" href="{% static 'css/preloader.css' %}"  media="screen">
+        <!-- Flexslider -->
+        <link rel="stylesheet" href="{% static 'css/flexslider/flexslider.css' %}" type="text/css">
+        <!-- Animate -->
+        <link rel="stylesheet" href="{% static 'css/animate/animate.css' %}" type="text/css">       
+        <!-- Countdown -->
+        <link rel="stylesheet" href="{% static 'css/countdown/jquery.countdown.css' %}" type="text/css">
+        <!-- Magnific Popup -->
+        <link rel="stylesheet" href="{% static 'css/magnific-popup/magnific-popup.css' %}" type="text/css">
+        <!-- Owl Carousel -->
+        <link rel="stylesheet" href="{% static 'css/owlcarousel/owl.carousel.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/owlcarousel/owl.theme.css' %}" type="text/css">
+        <!-- Icon -->
+        <link rel="stylesheet" href="{% static 'css/fonts/fontello/css/fontello.css' %}" type="text/css" media="screen" />
+        <!-- Font -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+        <!-- Theme CSS -->
+    	<link href="{% static 'css/style.css' %}" rel="stylesheet" media="screen">
+        
+        <!-- Skin CSS 
+    	<link href="css/skin/coral/style.css" rel="stylesheet" media="screen">
+        <link href="css/skin/coral/navbar-style.css" rel="stylesheet" media="screen">-->
+       
+	</head>
+
+	<body>
+    	<!--PRELOADER-->
+        <div id="preloader">
+        
+        	<div class="alignment">
+            	<div class="v-align center-middle"> 
+            		
+                    <div id="heart-on-center" class="spinner-animation"><i class="de-icon-heart"></i></div>
+                     
+                </div>
+            </div>
+            
+        </div> <!--END of PRELOADER-->
+        
+        
+        <!-- NAVIGATION -->    
+    	<header id="nav-header">
+        	<nav id="nav-bar" class="top-bar fluid-width hide-first transparent nav-center  hide-logo-on-desktop sticky-nav">
+            	
+                <div id="nav-wrapper">
+            		<div class="logo-wrapper">
+                    	<div class="nav-logo">D<span class="theme-color">+</span>B</div>
+                    </div>
+                    
+                    <div id="mobile-nav">
+                    	<i class="de-icon-menu"></i>
+                    </div>
+                
+                	<ul id="nav-menu" class="nav-smooth-scroll">
+                		<li>
+                        	<a href="#main-slider" class="active">HOME</a>
+                        </li>
+                        <li>
+                        	<a href="#story-section">STORY</a>
+                        </li>
+                        <li>
+                        	<a href="#save-the-date-section">WEDDING</a>
+                        </li>
+                        <li>
+                        	<a href="#gallery-section">GALLERY</a>
+                        </li>
+                        <li>
+                        	<a href="#gift-registry-section">GIFT</a>
+                        </li>
+                        <li>
+                        	<a href="#rsvp-section">RSVP</a>
+                        </li>
+                	</ul>
+                    
+                    <div class="clearboth"></div>
+                    
+                </div>
+                
+            </nav>
+        </header> <!-- END of NAVIGATION -->
+      
+      
+       	<!-- MAIN SLIDER -->
+    	<section id="main-slider" class="flexslider fullscreen">      	
+            
+            <!-- MAIN SLIDER TITLE OUTTER WRAPPER -->
+        	<div class="slide-title-outter-wrapper">
+            	
+            	<!-- MAIN SLIDER TITLE INNER WRAPPER -->
+				<div class="slide-title-inner-wrapper">
+                                
+                    <!-- TITLE -->
+					<div class="slide-title align-middle">
+                    
+                    	<div class="container">
+                        	<div class="row">
+                        		<div class="col-md-12">
+									
+                                    <div id="slide-couplename-wrapper" class="animation delay1 fadeInUp">
+                                    
+                                    	<div id="slide-couplename" class="scale75-onmobile">
+                                            <div id="slide-his-name">
+                                        		Dan
+                                        	</div>
+                                        	<div id="slide-and-text">
+				                            	<div id="curve-graphic">
+                                            		<img src="images/and-banner.png" alt="">
+                                            	</div>
+                                           	 	<div id="and-text">
+                                        			and
+                                           		</div>
+                                        	</div>
+                                        	<div id="slide-her-name">
+                                        		Bridget
+                                        	</div>
+                                        </div>
+                                        <h1 id="slide-other-text" class="animation delay2 fadeInUp">
+                                        	are Turning the Korner
+                                        </h1>
+                                        
+                                    </div>
+                                                            
+								</div> 
+							</div>
+						</div>
+                        
+                        <!-- DOWN ARROW -->
+						<div id="slide-arrow">
+ 							<div class="bounceloop">
+                            	<a href="#content" class="animation fadeIn smooth-scroll"><i class="de-icon-down-open"></i></a>
+                            </div>
+            			</div>
+            			 <!-- DOWN ARROW --> 
+                        
+					</div> 
+                                
+				</div><!-- END of MAIN SLIDER TITLE INNER WRAPPER -->
+                
+			</div> <!-- END of MAIN SLIDER TITLE OUTTER WRAPPER -->
+                         
+            <!-- MAIN SLIDER IMAGES -->
+            
+  			<ul class="slides">
+            	
+                
+    			<li>
+                	<!-- SLIDE IMAGE -->
+                	<div data-stellar-ratio="0.5" class="slide-image" style="background-image:url({% static 'images/mountains-backdrop.jpg' %}); background-position:center 30%;">
+                    </div>
+                    
+                    <!-- SLIDE OVERLAY -->
+                    <div class="slide-overlay" style="opacity:0.5"> </div> 
+                                                      
+    			</li>
+    			
+  			</ul><!-- END of MAIN SLIDER IMAGES -->    
+            
+		</section><!-- ENF of MAIN SLIDER -->
+       
+        
+        <!--CONTENT SECTION-->
+        <section id="content">
+        
+        	<!--COUPLE SECTION-->    
+            <section id="couple-section" class="section-block">
+            	<div class="container">
+                	<div class="row">
+                    	<div class="col-md-offset-1 col-md-10 text-center animation fadeInUp">
+	                        <h2 class="h4">THE HAPPY COUPLE</h2>
+                            <p class="intro-text">
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                    	<div class="col-md-6 col-sm-6">
+                        	<!--PHOTO-ITEM-->
+                             <div class="photo-item animation fadeInLeft">
+								
+                             		<!--HIS-PHOTO-->
+                                	<img src="{% static 'images/dan-profile.jpg' %}" alt="" class="hover-animation image-zoom-in">
+                                            
+                                    <!--PHOTO OVERLAY-->
+                           			<div class="layer wh95 hidden-black-overlay hover-animation fade-in">
+                            		</div><!--END of PHOTO OVERLAY-->                                                                  
+                                     
+                                    <!--ICON LINK-->
+                                    <div class="layer wh100 hidden-link hover-animation delay1 fade-in">
+                                    	<div class="alignment">
+                                    		<div class="v-align center-middle">
+                                     			<div class="photo-name his-front-name">Dan</div>
+                                      		</div>
+                                        </div>
+                                     </div><!--END of ICON LINK-->
+							
+							</div><!--END of PHOTO-ITEM--> 
+                           
+                           	<div class="couple-excerpt animation fadeInLeft">
+	                            <h2 class="h5"><a href="him-popup-template.html" class="magnific-ajax">THE GROOM</a></h2>
+                                <p>Sed tempor purus neque, luctus rutrum libero posuere quis. Sed sit amet nisl quam. Mauris elit enim, imperdiet a mollis ac, vestibulum scelerisque est. Maecenas egestas nunc at interdum scelerisque. Proin vel orci porta, dignissim lacus vitae, tincidunt leo. Duis auctor nunc leo.</p>
+                          	</div>
+                        </div>
+                       	
+                        <div class="col-md-6 col-sm-6">
+                        	<!--PHOTO-ITEM-->
+                             <div class="photo-item animation fadeInRight">
+								
+                             		<!--HER-PHOTO-->
+                                	<img src="http://placehold.it/453x453" alt="" class="hover-animation image-zoom-in">
+                                            
+                                    <!--PHOTO OVERLAY-->
+                           			<div class="layer wh95 hidden-black-overlay hover-animation fade-in">
+                            		</div><!--END of PHOTO OVERLAY-->
+                                                                  
+                                     
+                                    <!--ICON LINK-->
+                                    <div class="layer wh100 hidden-link hover-animation delay1 fade-in">
+                                    	<div class="alignment">
+                                    		<div class="v-align center-middle">
+                                     			<div class="photo-name her-front-name">Bridget</div>
+                                      		</div>
+                                        </div>
+                                     </div><!--END of ICON LINK-->
+							
+							</div><!--END of PHOTO-ITEM--> 
+                           
+                           	<div class="couple-excerpt animation fadeInRight">
+	                            <h2 class="h5"><a href="her-popup-template.html" class="magnific-ajax">THE BRIDE</a></h2>
+                                <p>Ut malesuada sed est sed porttitor. Vestibulum quis turpis at lacus commodo elementum sit amet et mauris. In non ligula facilisis, gravida felis at, consequat diam. Suspendisse at ante felis. Quisque sem risus, pellentesque vitae mauris ut, sagittis consequat enim. Maecenas ac nisl condimentum. </p>
+                          	</div>
+                        </div>
+                       		
+                    </div>
+                </div>            	
+            </section>
+            <!-- END of COUPLE SECTION-->
+            
+            
+            <!-- DIVIDER-1 SECTION -->
+            <section id="divider-1-section">
+            	<div class="image-divider fixed-height" style="background-image:url({% static 'images/pool-backdrop.jpg' %});" data-stellar-background-ratio="0.5">
+                	
+                    <div class="divider-overlay"></div>
+                    
+                    <!--Use Center Middle Alignment to align middle the content for fixed-height parallax-->
+                    <div class="alignment"> 
+                    	<div class="v-align center-middle">                   	
+                    
+                    <div class="container">                 	 
+                    	<div class="row">
+                        	<div class="col-md-offset-1 col-md-10 text-center">
+                            	<div id="adventure-begin-wrapper" class="animation fadeInUp">
+                                	<div id="adventure-begin" class="scale75-onmobile">
+                    					<div id="let-the" class="quote-top">Let the</div>
+                                		<div id="adventure" class="quote-middle">Adventure</div>
+                                		<div id="begin" class="quote-bottom">Begin</div>
+                                   	</div>
+                               	</div>
+                     		</div>
+                     	</div>
+                     </div>
+                     
+                     	</div>
+                   	</div>
+                	
+				</div>		
+            </section>
+            <!-- END of DIVIDER-1 SECTION -->
+            
+            
+            <!-- OUR STORY SECTION -->
+            <section id="story-section" class="section-block">
+            	
+                <div class="container">
+               
+               	 	<!-- ROW-1 -->
+                	<div class="row">
+                    	<div class="col-md-offset-1 col-md-10 text-center">
+	                        <h2 class="h4 animation fadeInUp">THE STORY</h2>
+                            <p class="intro-text animation fadeInUp">So how did this all come to be?</p>
+                        </div>
+                    </div><!-- END of ROW-1 -->
+				  	{% for entry in timeline_entries %}
+					  {% include "partials/timeline_entry.html" with entry=entry count=forloop.counter0 %}
+					{% endfor %}
+				</div><!-- END of CONTAINER -->
+            	
+            </section>  
+            
+            
+            <!-- SAVE THE DATE SECTION -->
+            <section id="save-the-date-section">
+            	<div class="image-divider fixed-height" style="background-image:url({% static 'images/pa-prom-canal.jpg' %}); height:500px" data-stellar-background-ratio="0.5">
+                	
+                    <div class="divider-overlay"></div>
+                    
+                    <!--Use Center Middle Alignment to align middle the content for fixed-height parallax-->
+                    <div class="alignment"> 
+                    	<div class="v-align center-middle">                   	
+                    
+                    <div class="container">                 	 
+                    	<div class="row">
+                        	<div class="col-md-offset-1 col-md-10 text-center">
+                    			<div id="save-date" class="animation fadeInUp">Save the Date</div>
+                                <h2 class="h1 animation fadeInUp" style="margin:30px 0">October 8<sup>th</sup>, 2021</h2>
+                	 			<h5 class="animation fadeInUp" style="letter-spacing:6px; font-weight:400">YOU'RE INVITED</h5>                     
+                     		</div>
+                     	</div>
+                     </div>
+                     
+                     	</div>
+                   	</div>
+                	
+				</div>		
+            </section>
+            <!-- END of SAVE THE DATE SECTION -->
+            
+            
+            <!--WEDDING SECTION-->    
+            <section id="wedding-section" class="section-block">
+            	<div class="container">
+                	<div class="row">
+                    	<div class="col-md-offset-1 col-md-10 text-center">
+	                        <h2 class="h4 animation fadeInUp">OUR WEDDING</h2>
+                            <p class="intro-text animation fadeInUp">Suspendisse nec dui ut turpis posuere sagittis viverra tincidunt lectus. Sed faucibus tristique purus, ac mattis lorem malesuada vel. Sed dignissim, orci eu porttitor suscipit, dolor mauris elementum dolor, eget posuere dui ante vel quam. Donec ut lacinia est, et convallis augue.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                    	<!-- ITEM-1 -->
+                        <!-- =================================================================== -->
+                        <div class="col-md-4 col-sm-4 wedding-item-wrapper">
+                                    
+                           	<!--PHOTO-ITEM-->
+                       		<div class="photo-item animation fadeInUp">
+								
+                             	<!--PHOTO-->
+                                <img src="http://placehold.it/500x415" alt="" class="hover-animation image-zoom-in">
+                                            
+                               	<!--PHOTO OVERLAY-->
+                           		<div class="layer wh95 hidden-black-overlay hover-animation fade-in">
+                            	</div><!--END of PHOTO OVERLAY-->
+                                				                                    
+                                <!--ICON LINK-->
+                                <div class="layer wh95 hidden-link hover-animation delay1 fade-in">
+                                    <div class="alignment">
+                                    	<div class="v-align center-middle">
+                                                    	
+                                            <a href="#" class="de-button small rounded">
+                                                MORE
+                                            </a>
+                                                        
+                                      	</div>
+                                      </div>
+                             	</div><!--END of ICON LINK-->
+							
+							</div><!--END of PHOTO-ITEM--> 
+                                        
+                            <!-- TITLE & EXCERPT -->
+                            <div class="title-excerpt animation fadeInUp text-center">
+                                <h5><a href="#">RECEPTION</a></h5>
+                                <p>Nullam ultricies arcu a neque imperdiet, vitae lacinia nisi congue. Nullam eget.</p>
+                           	</div>
+                            <!-- END of TITLE & EXCERPT -->
+                                         
+                    	</div><!-- END of ITEM-1 -->
+                                    
+                                    
+                       	<!-- ITEM-2 -->
+                        <!-- =================================================================== -->
+                        <div class="col-md-4 col-sm-4 wedding-item-wrapper">
+                                    
+                           	<!--PHOTO-ITEM-->
+                       		<div class="photo-item animation fadeInUp">
+								
+                             	<!--PHOTO-->
+                                <img src="http://placehold.it/500x415" alt="" class="hover-animation image-zoom-in">
+                                            
+                               	<!--PHOTO OVERLAY-->
+                           		<div class="layer wh95 hidden-black-overlay hover-animation fade-in">
+                            	</div><!--END of PHOTO OVERLAY-->
+                                				                                    
+                                <!--ICON LINK-->
+                                <div class="layer wh95 hidden-link hover-animation delay1 fade-in">
+                                    <div class="alignment">
+                                    	<div class="v-align center-middle">
+                                                    	
+                                            <a href="#" class="de-button small rounded">
+                                                MORE
+                                            </a>
+                                                        
+                                      	</div>
+                                      </div>
+                             	</div><!--END of ICON LINK-->
+							
+							</div><!--END of PHOTO-ITEM--> 
+                                        
+                            <!-- TITLE & EXCERPT -->
+                            <div class="title-excerpt animation fadeInUp text-center">
+                                <h5><a href="#">CEREMONY</a></h5>
+                                <p>Phasellus vehicula nisi magna, vitae placerat orci porta id. Aliquam sagittis ac.</p>
+                           	</div>
+                            <!-- END of TITLE & EXCERPT -->
+                                         
+                    	</div><!-- END of ITEM-2 -->
+                        
+                        
+                        <!-- ITEM-3 -->
+                        <!-- =================================================================== -->
+                        <div class="col-md-4 col-sm-4 wedding-item-wrapper">
+                                    
+                           	<!--PHOTO-ITEM-->
+                       		<div class="photo-item animation fadeInUp">
+								
+                             	<!--PHOTO-->
+                                <img src="http://placehold.it/500x415" alt="" class="hover-animation image-zoom-in">
+                                            
+                               	<!--PHOTO OVERLAY-->
+                           		<div class="layer wh95 hidden-black-overlay hover-animation fade-in">
+                            	</div><!--END of PHOTO OVERLAY-->
+                                				                                    
+                                <!--ICON LINK-->
+                                <div class="layer wh95 hidden-link hover-animation delay1 fade-in">
+                                    <div class="alignment">
+                                    	<div class="v-align center-middle">
+                                                    	
+                                            <a href="#" class="de-button small rounded">
+                                                MORE
+                                            </a>
+                                                        
+                                      	</div>
+                                      </div>
+                             	</div><!--END of ICON LINK-->
+							
+							</div><!--END of PHOTO-ITEM--> 
+                                        
+                            <!-- TITLE & EXCERPT -->
+                            <div class="title-excerpt animation fadeInUp text-center">
+                                <h5><a href="#">PARTY</a></h5>
+                                <p>Donec ex ex, ullamcorper eget faucibus ac, sollicitudin at mauris. Nunc libero eros. </p>
+                           	</div>
+                            <!-- END of TITLE & EXCERPT -->
+                                         
+                    	</div><!-- END of ITEM-3 -->
+                        
+                        
+                    </div>
+                </div>            	
+            </section>
+            <!-- END of WEDDING SECTION-->
+            
+            
+            <!-- MAP SECTION -->
+            <section id="map-section">
+                <div id="map-canvas-3" class="animation fadeIn" style="height:550px; width:100%;"></div>
+            </section>
+            <!-- END of MAP SECTION -->
+            
+            
+            <!--INTEREST PLACES SECTION-->    
+            <section id="interest-places-section" class="section-block">
+            	<div class="container">
+                	<div class="row">
+                    	<div class="col-md-offset-1 col-md-10 text-center">
+	                        <h2 class="h4 animation fadeInUp">PLACES OF INTEREST</h2>
+                            <p class="intro-text animation fadeInUp">
+								Visiting from out of town? <strong>Welcome to Western New York!</strong>
+								While you are around the area, try to check out some of the best attractions
+								and parks that our hometown area has to offer, from the Falls, to Letchworth,
+								to all that sweet, sweet wine in the Finger Lakes.
+							</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                    	<!-- EVENTS CAROUSEL -->
+                    	<div id="events-carousel" class="owl-carousel animation fadeInUp">
+                        
+                            <!-- ITEM-1 -->
+                    		<div class="item">
+                                
+                                <div class="places-card">
+                                	<div class="de-icon inline medium-size circle" style="background-color:#fc9e9e">
+                            			<i class="de-icon-gift"></i>
+                            		</div>
+                                    <div class="places-title">
+                                    	<h5>GIFT STATION</h5>
+                                    </div>
+                                    <div class="places-desc">
+                                    	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </div>
+                                </div>
+                            
+                            </div><!--END of ITEM-1-->  
+                            
+                            
+                            <!-- ITEM-2 -->
+                    		<div class="item">
+                                
+                                <div class="places-card">
+                                	<div class="de-icon inline medium-size circle" style="background-color:#e9c24c">
+                            			<i class="de-icon-bus"></i>
+                            		</div>
+                                    <div class="places-title">
+                                    	<h5>BUS STOP</h5>
+                                    </div>
+                                    <div class="places-desc">
+                                    	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </div>
+                                </div>
+                            
+                            </div><!--END of ITEM-2-->  
+                            
+                            
+                            <!-- ITEM-3 -->
+                    		<div class="item">
+                                
+                                <div class="places-card">
+                                	<div class="de-icon inline medium-size circle" style="background-color:#bfd730">
+                            			<i class="de-icon-tree"></i>
+                            		</div>
+                                    <div class="places-title">
+                                    	<h5>GARDEN</h5>
+                                    </div>
+                                    <div class="places-desc">
+                                    	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </div>
+                                </div>
+                            
+                            </div><!--END of ITEM-3-->  
+                            
+                            
+                            <!-- ITEM-4 -->
+                    		<div class="item">
+                                
+                                <div class="places-card">
+                                	<div class="de-icon inline medium-size circle" style="background-color:#8fcbda">
+                            			<i class="de-icon-subway"></i>
+                            		</div>
+                                    <div class="places-title">
+                                    	<h5>TRAIN STATION</h5>
+                                    </div>
+                                    <div class="places-desc">
+                                    	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </div>
+                                </div>
+                            
+                            </div><!--END of ITEM-4-->  
+                            
+                            
+                            <!-- ITEM-5 -->
+                    		<div class="item">
+                                
+                                <div class="places-card">
+                                	<div class="de-icon inline medium-size circle" style="background-color:#797ee6">
+                            			<i class="de-icon-airport"></i>
+                            		</div>
+                                    <div class="places-title">
+                                    	<h5>AIRPORT</h5>
+                                    </div>
+                                    <div class="places-desc">
+                                    	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </div>
+                                </div>
+                            
+                            </div><!--END of ITEM-5-->  
+                            
+                                
+                        </div><!--END of EVENTS CAROUSEL-->   
+                    </div>
+                </div>            	
+            </section>
+            <!-- END of INTEREST PLACES SECTION-->
+            
+            
+            <!-- DIVIDER-2 SECTION -->
+            <section id="divider-2-section">
+            	<div class="image-divider auto-height" style="background-image:url({% static 'images/helicopter.jpg' %});" data-stellar-background-ratio="0.5">
+                	
+                    <div class="divider-overlay"></div>
+                    
+                    <!--Use Center Middle Alignment to align middle the content for fixed-height parallax
+                    <div class="alignment"> 
+                    	<div class="v-align center-middle">  -->                 	
+                    
+                    <div class="container">                 	 
+                    	<div class="row">
+                        	<div class="col-md-offset-1 col-md-10 text-center">
+                            	<div id="counting-wrapper" class="animation fadeInUp">
+                    				<div id="counting">Counting Down</div>
+                               	</div>
+                     		</div>
+                            <div class="col-md-offset-2 col-md-8 text-center">
+                            	<div id="countdown" class="countdown circle-countdown animation fadeInUp"></div>
+                     		</div>
+                     	</div>
+                     </div>
+                     
+                     	<!--</div>
+                   	</div>-->
+                    
+				</div>		
+            </section>
+            <!-- END of DIVIDER-2 SECTION -->
+            
+            
+            <!--BRIDESMAID SECTION-->    
+            <section id="bridesmaid-section" class="section-block more-grey">
+            	<div class="container">
+                	<div class="row">
+                    	<div class="col-md-offset-1 col-md-10 text-center">
+	                        <h2 class="h4 animation fadeInUp">OUR BRIDESMAID</h2>
+                            <p class="intro-text animation fadeInUp">Suspendisse nec dui ut turpis posuere sagittis viverra tincidunt lectus. Sed faucibus tristique purus, ac mattis lorem malesuada vel. Sed dignissim, orci eu porttitor suscipit, dolor mauris elementum dolor, eget posuere dui ante vel quam. Donec ut lacinia est, et convallis augue.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+						{% for guest in maids %}
+							{% include "partials/guest_role.html" with guest=guest %}
+						{% endfor %}
+                	</div>
+                </div>            	
+            </section>
+            <!-- END of BRIDESMAID SECTION-->
+            
+            
+            <!-- DIVIDER-3 SECTION -->
+            <section id="divider-3-section">
+            	<div class="image-divider fixed-height" style="background-image:url(http://placehold.it/1920x1080); height:500px" data-stellar-background-ratio="0.5">
+                	
+                    <div class="divider-overlay"></div>
+                    
+				</div>		
+            </section>
+            <!-- END of DIVIDER-3 SECTION -->
+            
+            
+            <!--GROOMSMEN SECTION-->    
+            <section id="groomsmen-section" class="section-block more-grey">
+            	<div class="container">
+                	<div class="row">
+                    	<div class="col-md-offset-1 col-md-10 text-center">
+	                        <h2 class="h4 animation fadeInUp">OUR GROOMSMEN</h2>
+                            <p class="intro-text animation fadeInUp">Suspendisse nec dui ut turpis posuere sagittis viverra tincidunt lectus. Sed faucibus tristique purus, ac mattis lorem malesuada vel. Sed dignissim, orci eu porttitor suscipit, dolor mauris elementum dolor, eget posuere dui ante vel quam. Donec ut lacinia est, et convallis augue.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        {% for guest in groomsmen %}
+							{% include "partials/guest_role.html" with guest=guest %}
+						{% endfor %}
+                   	</div>
+                </div>            	
+            </section>
+            <!-- END of GROOMSMEN SECTION-->
+            
+            
+            <!-- DIVIDER-4 SECTION -->
+            <section id="divider-4-section">
+            	<div class="image-divider fixed-height" style="background-image:url({% static 'images/halloween.jpg' %}); height:500px" data-stellar-background-ratio="0.5">
+                	
+                    <div class="divider-overlay"></div>
+                    
+                    <!--Use Center Middle Alignment to align middle the content for fixed-height parallax --> 
+                    <div class="alignment"> 
+                    	<div class="v-align center-middle">                 	
+                    
+                    <div class="container">                 	 
+                    	<div class="row">
+                        	<div class="col-md-offset-1 col-md-10 text-center">
+                            	<div id="attending-wrapper" class="animation fadeInUp">
+                    				<div id="attending">Attending?</div>
+                               	</div>
+                                 <a href="#rsvp-section" class="de-button small light-2 rounded animation fadeInUp smooth-scroll">
+                                	RSVP
+                                </a>
+                     		</div>
+                     	</div>
+                     </div>
+                     
+                     	</div>
+                   	</div>
+                    
+				</div>		
+            </section>
+            <!-- END of DIVIDER-4 SECTION -->
+            
+            
+            <!--GALLERY SECTION-->    
+            <section id="gallery-section" class="section-block">
+            	<div class="container">
+                	<div class="row">
+                    	<div class="col-md-offset-1 col-md-10 text-center">
+	                        <h2 class="h4 animation fadeInUp">GALLERY</h2>
+                            <p class="intro-text animation fadeInUp">Suspendisse nec dui ut turpis posuere sagittis viverra tincidunt lectus. Sed faucibus tristique purus, ac mattis lorem malesuada vel. Sed dignissim, orci eu porttitor suscipit, dolor mauris elementum dolor, eget posuere dui ante vel quam. Donec ut lacinia est, et convallis augue.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+						{% for item in gallery %}	
+							<div class="col-sm-4 col-md-3 gallery-item animation fadeInUp">
+								<div class="photo-item animation fadeIn">
+									<!-- TODO: have smaller res picture here -->
+									<img src="{{ item.thumbnail.url }}" alt="" class="hover-animation image-zoom-in">
+									<div class="layer wh100 hidden-black-overlay hover-animation fade-in"></div>
+									<div class="layer wh100 hidden-link hover-animation delay1 fade-in">
+										<div class="alignment">
+											<div class="v-align center-middle">
+												<a href="{{ item.picture.url }}" class="magnific-zoom-gallery" title="{{ item.title }}">
+													<div class="de-icon circle light-1 medium-size inline">
+														<i class="de-icon-zoom-in-1"></i>
+													</div>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+                   </div>
+                </div>            	
+            </section>
+            <!-- END of GALLERY SECTION-->
+            
+            
+            <!-- DIVIDER-5 SECTION -->
+            <section id="divider-5-section">
+            	<div class="image-divider fixed-height" style="background-image:url(http://placehold.it/1920x1080); height:500px" data-stellar-background-ratio="0.5">
+                    <div class="divider-overlay"></div>
+				</div>		
+            </section>
+            <!-- END of DIVIDER-5 SECTION -->
+            
+            
+            <!--GIFT SECTION-->    
+            <section id="gift-registry-section" class="section-block more-grey">
+            	<div class="container">
+                	<div class="row">
+                    	<div class="col-md-offset-1 col-md-10 text-center">
+	                        <h2 class="h4 animation fadeInUp">GIFT REGISTRY</h2>
+                            <p class="intro-text animation fadeInUp">
+                                We are fortunate enough that we don&apos;t need to ask for assistance at this time.
+                                Instead, we kindly encourage guests to contribute a donation to one of the following
+                                charities or organizations that have had a positive impact on us.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+						{% for item in registry %}
+                    	<div class="col-md-4 col-sm-6 animation fadeInUp">
+                            <div class="gift-card">
+                            	<div class="gift-logo">
+                            		<a href="{{ item.link }}"><img src="{{ item.picture.url }}"></a>
+                               	</div>
+                                <div class="gift-desc">
+                                	<p class="no-margin">{{ item.details }}</p>
+                                </div>
+                            </div>
+                        </div>
+						{% endfor %}
+                   </div>
+                </div>            	
+            </section>
+            <!-- END of GIFT SECTION-->
+        </section>
+        
+        <!-- FOOTER SECTION -->
+            <footer>
+            	<div class="image-divider fixed-height" style="background-image:url(http://placehold.it/1920x1080);" data-stellar-background-ratio="0.5" >
+                
+                	<div class="divider-overlay"></div>
+                    
+                    <!-- Use Center Middle Alignment to align middle the content for fixed-height parallax -->
+                    <div class="alignment"> 
+                    	<div class="v-align center-middle">                  	
+                    
+                    		<div class="container">                 	 
+                    			<div class="row">
+                        			<div class="col-md-12">
+                          				
+                                        <div id="thank-you" class="scale75-onmobile">                                  
+                     						<div id="thank" class="animation fadeInUp">
+                                            	Thank
+                                            </div>
+                                            <div id="you" class="animation fadeInUp">
+                                            	You
+                                            </div>                                            
+                                        </div>
+                                        <h6 class="animation delay1 fadeInUp" style="letter-spacing:6px;">DAN &amp; BRIDGET</h6>
+                     
+                     				</div>
+                     			</div>
+                     		</div>
+                     
+                     	</div>
+                   	</div>
+                    
+                </div>
+            </footer>
+           
+            
+		<!-- jQuery -->
+    	<script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+        <!-- Pace -->
+        <script src="{% static 'js/pace/pace.min.js' %}"></script> 
+    	<!-- Bootstrap -->
+    	<script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>  	
+        <!-- Device JS -->
+        <script src="{% static 'js/devicejs/device.min.js' %}"></script>  
+        <!-- SmoothScroll -->
+        <script src="{% static 'js/smoothscroll/jquery.smooth-scroll.min.js' %}"></script>
+        <!-- Flexslider -->
+        <script src="{% static 'js/flexslider/jquery.flexslider-min.js' %}"></script> 
+        <!-- Waypoint -->
+        <script src="{% static 'js/waypoint/jquery.waypoints.min.js' %}"></script>
+        <!-- DoubleTapToGo -->
+        <script src="{% static 'js/jquery-ui-widget/jquery.ui.widget.min.js' %}"></script>
+        <script src="{% static 'js/jquery-doubletaptogo/jquery.dcd.doubletaptogo.min.js' %}"></script>
+        <!-- Stellar -->
+        <script src="{% static 'js/stellar/jquery.stellar.min.js' %}"></script>
+        <!-- Masonry -->
+        <script src="{% static 'js/masonry/masonry.pkgd.min.js' %}"></script>
+        <!-- Countdown -->
+        <script src="{% static 'js/countdown/jquery.plugin.min.js' %}"></script>
+        <script src="{% static 'js/countdown/jquery.countdown.min.js' %}"></script>
+        <!-- Magnific Popup -->
+        <script src="{% static 'js/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+        <!-- Owl Carousel -->
+        <script src="{% static 'js/owlcarousel/owl.carousel.min.js' %}"></script>
+        <!-- Google Map -->
+        <script src="https://maps.googleapis.com/maps/api/js?key={{ maps_key }}"></script>
+        <script type="text/javascript" src="{% static 'js/markerlabel/markerwithlabel.js' %}"></script>
+        <!-- RSVP -->
+        <script src="{% static 'js/rsvp/rsvp.js' %}"></script>
+        
+        <!-- Custom Core Script -->
+        <script type="text/javascript" src="{% static 'js/script.js' %}"></script>        
+        <!-- Custom Additional Script -->
+        <script type="text/javascript" src="{% static 'js/main-slider-fade.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/map-script-3.js' %}"></script>        
+        
+	</body>
+</html>
