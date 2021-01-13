@@ -11,6 +11,9 @@ phonenumbers = "*"
 django-material-admin = "*"
 pillow = "*"
 sorl-thumbnail = "*"
+gunicorn = "*"
+django-heroku = "*"
+django-storages = "*"
 
 [dev-packages]
 

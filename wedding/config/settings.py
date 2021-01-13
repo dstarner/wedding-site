@@ -10,7 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import os
 from pathlib import Path
+
+import django_heroku
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,10 +28,9 @@ PROJECT_DIR = BASE_DIR.parent
 SECRET_KEY = '3bs)rdz_t+-pt#7o#^w^w5z=^v$#yzghsavvlne&)nn$@qfog@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'true').lower() in ['true']
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -154,3 +157,14 @@ MATERIAL_ADMIN_SITE = {
         'site': 'contact_mail',
     }
 }
+
+django_heroku.settings(locals())
+
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+
+AWS_ACCESS_KEY_ID = os.getenv('BUCKETEER_AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('BUCKETEER_AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.getenv('BUCKETEER_BUCKET_NAME')
+AWS_S3_REGION_NAME = os.getenv('BUCKETEER_AWS_REGION')
