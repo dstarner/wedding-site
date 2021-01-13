@@ -81,6 +81,9 @@ class PlaceOfInterest(models.Model):
             data[key] = getattr(self, key)
         return data
 
+    def __str__(self):
+        return self.name
+
 
 class TimelineEntry(models.Model):
 
@@ -89,8 +92,8 @@ class TimelineEntry(models.Model):
     month = models.IntegerField('Month', choices=MonthChoices.choices, help_text='Abbreviation for the month to show')
 
     year = models.IntegerField(
-        help_text='Can be between 2013 and 2022',
-        validators=[MinValueValidator(2013), MaxValueValidator(2022)]
+        help_text='Can be between 2010 and 2022',
+        validators=[MinValueValidator(2010), MaxValueValidator(2022)]
     )
 
     details = models.TextField()
@@ -100,6 +103,9 @@ class TimelineEntry(models.Model):
     class Meta:
         ordering = ('year', 'month')
         verbose_name_plural = 'Timeline Entries'
+
+    def __str__(self):
+        return self.title
 
 
 class GalleryItem(models.Model):
@@ -114,17 +120,22 @@ class GalleryItem(models.Model):
         _create_thumbnail(self.picture, self.thumbnail, (300, 300))
         return super().save(*args, **kwargs)
 
+    def __str__(self):
+        return self.title
+
     class Meta:
         verbose_name_plural = 'Gallery Items'
 
 
 class RegistryOrganization(models.Model):
 
-    details = models.CharField(max_length=128)
+    title = models.CharField(max_length=32, default='')
 
     picture = models.ImageField(upload_to=registry_thumbnail_path)
 
     link = models.URLField(help_text='Link to redirect clicks to')
+
+    details = models.CharField(max_length=128)
 
     class Meta:
         verbose_name_plural = 'Registry Organizations'

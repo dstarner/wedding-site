@@ -21,7 +21,7 @@ class GalleryItemAdmin(admin.ModelAdmin):
 @admin.register(RegistryOrganization)
 class RegistryOrganizationAdmin(admin.ModelAdmin):
     icon_name = 'store'
-    list_display = ('link',)
+    list_display = ('title', 'link',)
 
 
 @admin.register(PlaceOfInterest)

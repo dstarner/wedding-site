@@ -56,47 +56,50 @@ function initializeMap(data) {
 		map.mapTypes.set('map_style', styledMap);
 		map.setMapTypeId('map_style');
 
-		var bounds = new google.maps.LatLngBounds()
+		const bounds = new google.maps.LatLngBounds()
+		const markersWindows = new Array();
 		  
-        for (var i=0; i < data.length; i++) {
+        for (let i=0; i < data.length; i++) {
 			var place = data[i];
 
-			var markerContent = (
-				'<div id="gift-marker" class="de-icon circle medium-size" style="background-color:' + 
-				place.color + '"><i class="de-icon-' + place.icon + '"></i></div>'
-			);
-			var anchorSize = 27;
-
-			var marker = new MarkerWithLabel({
+			const marker = new MarkerWithLabel({
 				position: new google.maps.LatLng(place.lat, place.long),
 				draggable: false,
 				raiseOnDrag: false,
 				icon: ' ',
 				map: map, 
-			  	labelContent: markerContent,
-				labelAnchor: new google.maps.Point(anchorSize, anchorSize),
+			  	labelContent: (
+					'<div id="gift-marker" class="de-icon circle medium-size" style="background-color:' + 
+					place.color + '"><i class="de-icon-' + place.icon + '"></i></div>'
+				),
+				labelAnchor: new google.maps.Point(27, 27),
 				labelClass: "labels" // the CSS class for the label
 			});
-			  
-			var contentString = ''+
+
+			const contentString = ''+
 			'<div class="info-window-wrapper">'+
 				'<h6>' + place.name + '</h6>'+
 				'<div class="info-window-desc">' + place.details + '</div>'+
-				'<div class="info-window-link"><a href="' + place.link + '" class="grey-link with-underline">More Info</a></div>'+
+				'<div class="info-window-link">' +
+					'<a href="' + place.link + '" target="_blank" class="grey-link with-underline">More Info</a>' +
+				'</div>'+
 			'</div>';
 		
-			var marker_infowindow = new google.maps.InfoWindow({
+			const marker_infowindow = new google.maps.InfoWindow({
 				content: contentString,
-				maxWidth: 200,
-				pixelOffset: new google.maps.Size(0,-10)
+				maxWidth: 300,
 			});
+
+			markersWindows.push(marker_infowindow);
 		
 			if (place.open_on_load) {
 				marker_infowindow.open(map, marker);
 			}
-		
-			//ON MARKER CLICK EVENTS
-			google.maps.event.addListener(marker, 'click', function() {
+
+			marker.addListener('click', function() {
+				markersWindows.forEach(function(m) {
+					m.close();
+				});
 				marker_infowindow.open(map, marker);	
 			});
 			bounds.extend({ lat: place.lat, lng: place.long });
