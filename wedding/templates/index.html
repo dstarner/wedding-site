@@ -8,7 +8,7 @@
       	<meta name="author" content="themeforest.net/user/doubleeight/portfolio">
       	<title>Turning the Korner</title>
         
-        <link rel="icon" href="images/favicon.jpg">
+        <link rel="icon" href="{% static 'images/favicon.png' %}">
         <!-- Bootstrap -->
     	<link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}" type="text/css" media="screen" />
         <!-- Pace -->
@@ -467,7 +467,7 @@
             
             <!-- MAP SECTION -->
             <section id="map-section">
-                <div id="map-canvas-3" class="animation fadeIn" style="height:550px; width:100%;"></div>
+                <div id="map-canvas" class="animation fadeIn" style="height:550px; width:100%;"></div>
             </section>
             <!-- END of MAP SECTION -->
             
@@ -487,116 +487,30 @@
                         </div>
                     </div>
                     <div class="row">
-                    	<!-- EVENTS CAROUSEL -->
                     	<div id="events-carousel" class="owl-carousel animation fadeInUp">
-                        
-                            <!-- ITEM-1 -->
+                            {% for place in places %}
                     		<div class="item">
-                                
                                 <div class="places-card">
-                                	<div class="de-icon inline medium-size circle" style="background-color:#fc9e9e">
-                            			<i class="de-icon-gift"></i>
+                                	<div class="de-icon inline medium-size circle" style="background-color:{{ place.color }}">
+                            			<i class="de-icon-{{ place.icon }}"></i>
                             		</div>
                                     <div class="places-title">
-                                    	<h5>GIFT STATION</h5>
+                                    	<h5>{{ place.name }}</h5>
                                     </div>
-                                    <div class="places-desc">
-                                    	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    </div>
+                                    <div class="places-desc">{{ place.details|truncatewords:24 }}</div>
                                 </div>
-                            
-                            </div><!--END of ITEM-1-->  
-                            
-                            
-                            <!-- ITEM-2 -->
-                    		<div class="item">
-                                
-                                <div class="places-card">
-                                	<div class="de-icon inline medium-size circle" style="background-color:#e9c24c">
-                            			<i class="de-icon-bus"></i>
-                            		</div>
-                                    <div class="places-title">
-                                    	<h5>BUS STOP</h5>
-                                    </div>
-                                    <div class="places-desc">
-                                    	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    </div>
-                                </div>
-                            
-                            </div><!--END of ITEM-2-->  
-                            
-                            
-                            <!-- ITEM-3 -->
-                    		<div class="item">
-                                
-                                <div class="places-card">
-                                	<div class="de-icon inline medium-size circle" style="background-color:#bfd730">
-                            			<i class="de-icon-tree"></i>
-                            		</div>
-                                    <div class="places-title">
-                                    	<h5>GARDEN</h5>
-                                    </div>
-                                    <div class="places-desc">
-                                    	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    </div>
-                                </div>
-                            
-                            </div><!--END of ITEM-3-->  
-                            
-                            
-                            <!-- ITEM-4 -->
-                    		<div class="item">
-                                
-                                <div class="places-card">
-                                	<div class="de-icon inline medium-size circle" style="background-color:#8fcbda">
-                            			<i class="de-icon-subway"></i>
-                            		</div>
-                                    <div class="places-title">
-                                    	<h5>TRAIN STATION</h5>
-                                    </div>
-                                    <div class="places-desc">
-                                    	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    </div>
-                                </div>
-                            
-                            </div><!--END of ITEM-4-->  
-                            
-                            
-                            <!-- ITEM-5 -->
-                    		<div class="item">
-                                
-                                <div class="places-card">
-                                	<div class="de-icon inline medium-size circle" style="background-color:#797ee6">
-                            			<i class="de-icon-airport"></i>
-                            		</div>
-                                    <div class="places-title">
-                                    	<h5>AIRPORT</h5>
-                                    </div>
-                                    <div class="places-desc">
-                                    	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    </div>
-                                </div>
-                            
-                            </div><!--END of ITEM-5-->  
-                            
-                                
-                        </div><!--END of EVENTS CAROUSEL-->   
+                            </div>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>            	
             </section>
             <!-- END of INTEREST PLACES SECTION-->
             
-            
-            <!-- DIVIDER-2 SECTION -->
+            {% if maids|length > 0 %}
             <section id="divider-2-section">
             	<div class="image-divider auto-height" style="background-image:url({% static 'images/helicopter.jpg' %});" data-stellar-background-ratio="0.5">
-                	
                     <div class="divider-overlay"></div>
-                    
-                    <!--Use Center Middle Alignment to align middle the content for fixed-height parallax
-                    <div class="alignment"> 
-                    	<div class="v-align center-middle">  -->                 	
-                    
                     <div class="container">                 	 
                     	<div class="row">
                         	<div class="col-md-offset-1 col-md-10 text-center">
@@ -609,16 +523,8 @@
                      		</div>
                      	</div>
                      </div>
-                     
-                     	<!--</div>
-                   	</div>-->
-                    
 				</div>		
             </section>
-            <!-- END of DIVIDER-2 SECTION -->
-            
-            
-            <!--BRIDESMAID SECTION-->    
             <section id="bridesmaid-section" class="section-block more-grey">
             	<div class="container">
                 	<div class="row">
@@ -634,71 +540,41 @@
                 	</div>
                 </div>            	
             </section>
-            <!-- END of BRIDESMAID SECTION-->
+			{% endif %}
             
-            
-            <!-- DIVIDER-3 SECTION -->
-            <section id="divider-3-section">
-            	<div class="image-divider fixed-height" style="background-image:url(http://placehold.it/1920x1080); height:500px" data-stellar-background-ratio="0.5">
-                	
-                    <div class="divider-overlay"></div>
-                    
-				</div>		
-            </section>
-            <!-- END of DIVIDER-3 SECTION -->
-            
-            
-            <!--GROOMSMEN SECTION-->    
-            <section id="groomsmen-section" class="section-block more-grey">
-            	<div class="container">
-                	<div class="row">
-                    	<div class="col-md-offset-1 col-md-10 text-center">
-	                        <h2 class="h4 animation fadeInUp">OUR GROOMSMEN</h2>
-                            <p class="intro-text animation fadeInUp">Suspendisse nec dui ut turpis posuere sagittis viverra tincidunt lectus. Sed faucibus tristique purus, ac mattis lorem malesuada vel. Sed dignissim, orci eu porttitor suscipit, dolor mauris elementum dolor, eget posuere dui ante vel quam. Donec ut lacinia est, et convallis augue.</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        {% for guest in groomsmen %}
-							{% include "partials/guest_role.html" with guest=guest %}
-						{% endfor %}
-                   	</div>
-                </div>            	
-            </section>
-            <!-- END of GROOMSMEN SECTION-->
-            
-            
-            <!-- DIVIDER-4 SECTION -->
-            <section id="divider-4-section">
+            {% if groomsmen|length > 0 %}
+				<section id="divider-3-section">
+					<div class="image-divider fixed-height" style="background-image:url(http://placehold.it/1920x1080); height:500px" data-stellar-background-ratio="0.5">
+						
+						<div class="divider-overlay"></div>
+						
+					</div>		
+				</section>
+				<section id="groomsmen-section" class="section-block more-grey">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-offset-1 col-md-10 text-center">
+								<h2 class="h4 animation fadeInUp">OUR GROOMSMEN</h2>
+								<p class="intro-text animation fadeInUp">
+									I need some text here!
+								</p>
+							</div>
+						</div>
+						<div class="row">
+							{% for guest in groomsmen %}
+								{% include "partials/guest_role.html" with guest=guest %}
+							{% endfor %}
+						</div>
+					</div>            	
+				</section>
+			{% endif %}
+
+		   	{% if gallery|length > 0 %} 
+            <section id="divider-5-section">
             	<div class="image-divider fixed-height" style="background-image:url({% static 'images/halloween.jpg' %}); height:500px" data-stellar-background-ratio="0.5">
-                	
                     <div class="divider-overlay"></div>
-                    
-                    <!--Use Center Middle Alignment to align middle the content for fixed-height parallax --> 
-                    <div class="alignment"> 
-                    	<div class="v-align center-middle">                 	
-                    
-                    <div class="container">                 	 
-                    	<div class="row">
-                        	<div class="col-md-offset-1 col-md-10 text-center">
-                            	<div id="attending-wrapper" class="animation fadeInUp">
-                    				<div id="attending">Attending?</div>
-                               	</div>
-                                 <a href="#rsvp-section" class="de-button small light-2 rounded animation fadeInUp smooth-scroll">
-                                	RSVP
-                                </a>
-                     		</div>
-                     	</div>
-                     </div>
-                     
-                     	</div>
-                   	</div>
-                    
 				</div>		
             </section>
-            <!-- END of DIVIDER-4 SECTION -->
-            
-            
-            <!--GALLERY SECTION-->    
             <section id="gallery-section" class="section-block">
             	<div class="container">
                 	<div class="row">
@@ -731,19 +607,14 @@
                    </div>
                 </div>            	
             </section>
-            <!-- END of GALLERY SECTION-->
+            {% endif %}
             
-            
-            <!-- DIVIDER-5 SECTION -->
+			{% if registry|length > 0 %}
             <section id="divider-5-section">
             	<div class="image-divider fixed-height" style="background-image:url(http://placehold.it/1920x1080); height:500px" data-stellar-background-ratio="0.5">
                     <div class="divider-overlay"></div>
 				</div>		
             </section>
-            <!-- END of DIVIDER-5 SECTION -->
-            
-            
-            <!--GIFT SECTION-->    
             <section id="gift-registry-section" class="section-block more-grey">
             	<div class="container">
                 	<div class="row">
@@ -772,7 +643,7 @@
                    </div>
                 </div>            	
             </section>
-            <!-- END of GIFT SECTION-->
+			{% endif %}
         </section>
         
         <!-- FOOTER SECTION -->
@@ -848,7 +719,13 @@
         <script type="text/javascript" src="{% static 'js/script.js' %}"></script>        
         <!-- Custom Additional Script -->
         <script type="text/javascript" src="{% static 'js/main-slider-fade.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/map-script-3.js' %}"></script>        
+        <script type="text/javascript" src="{% static 'js/homepage-map.js' %}"></script>
+        <script type="text/javascript">
+            var data = JSON.parse("{{places_data|escapejs}}");
+            (function($) {
+                initializeMap(data);
+            })(jQuery);
+        </script>
         
 	</body>
 </html>

@@ -15,3 +15,24 @@ class MonthChoices(models.IntegerChoices):
     OCT = 10, 'Oct'
     NOV = 11, 'Nov'
     DEC = 12, 'Dec'
+
+
+class PlaceChoices(models.TextChoices):
+
+    CEREMONY = 'heart-1', 'Ceremony'
+    RECEPTION = 'wine', 'Reception'
+
+    AIRPORT = 'plane', 'Airport'
+    PARK = 'tree', 'Parks and Greenspace'
+    ATTRACTION = 'star', 'Tourist Attraction'
+
+    @classmethod
+    def color(cls, value):
+        return {
+            cls.AIRPORT: '#797ee6',
+            cls.PARK: '#bfd730',
+            cls.ATTRACTION: '#e9c24c',
+        }.get(value, '#f98d8a')
+        
+
+

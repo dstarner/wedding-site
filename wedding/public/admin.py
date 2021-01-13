@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import GalleryItem, RegistryOrganization, TimelineEntry
+from .models import GalleryItem, PlaceOfInterest, RegistryOrganization, TimelineEntry
 
 
 @admin.register(TimelineEntry)
@@ -11,7 +11,7 @@ class TimelineEntryAdmin(admin.ModelAdmin):
 
 
 @admin.register(GalleryItem)
-class GalleryItem(admin.ModelAdmin):
+class GalleryItemAdmin(admin.ModelAdmin):
 
     icon_name = 'insert_photo'
     list_display = ('title', 'picture')
@@ -19,6 +19,12 @@ class GalleryItem(admin.ModelAdmin):
 
 
 @admin.register(RegistryOrganization)
-class RegistryOrganization(admin.ModelAdmin):
+class RegistryOrganizationAdmin(admin.ModelAdmin):
     icon_name = 'store'
     list_display = ('link',)
+
+
+@admin.register(PlaceOfInterest)
+class PlaceOfInterestAdmin(admin.ModelAdmin):
+    icon_name = 'room'
+    list_display = ('name', 'type')

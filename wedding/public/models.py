@@ -8,7 +8,7 @@ from django.db import models
 from django.db.models.fields.files import ImageFieldFile
 from PIL import Image
 
-from .choices import MonthChoices
+from .choices import MonthChoices, PlaceChoices
 
 
 def entry_picture_path(instance, filename):
@@ -40,6 +40,46 @@ def _create_thumbnail(image_field: ImageFieldFile, thumbnail_image_field: ImageF
         ),
         save=False
     )
+
+
+class PlaceOfInterest(models.Model):
+
+    name = models.CharField(max_length=32)
+
+    link = models.URLField()
+
+    icon = models.CharField(max_length=32, choices=PlaceChoices.choices)
+
+    details = models.TextField()
+
+    lat = models.DecimalField(
+        max_digits=9, decimal_places=6,
+        help_text='Use <a href="https://www.latlong.net/convert-address-to-lat-long.html" target="_blank">this</a> to get values'
+    )
+
+    long = models.DecimalField(
+        max_digits=9, decimal_places=6,
+        help_text='Use <a href="https://www.latlong.net/convert-address-to-lat-long.html" target="_blank">this</a> to get values'
+    )
+
+    @property
+    def color(self):
+        return PlaceChoices.color(self.icon)
+
+    @property
+    def type(self):
+        return self.get_icon_display().lower().replace(' ', '-')
+
+    @property
+    def open_on_load(self):
+        return self.icon == PlaceChoices.CEREMONY
+
+    def as_data(self):
+        keys = ['name', 'link', 'icon', 'details', 'color', 'type', 'open_on_load', 'lat', 'long']
+        data = {}
+        for key in keys:
+            data[key] = getattr(self, key)
+        return data
 
 
 class TimelineEntry(models.Model):
