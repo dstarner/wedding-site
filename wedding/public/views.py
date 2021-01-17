@@ -19,8 +19,8 @@ class DecimalEncoder(json.JSONEncoder):
 def index(request):
     best_man = Guest.objects.filter(role=Role.BEST_MAN).first()
     maid_of_honor = Guest.objects.filter(role=Role.MAID_OF_HONOR).first()
-    groomsmen = Guest.objects.filter(role=Role.GROOMSMAN).all()
-    maids = Guest.objects.filter(role=Role.BRIDESMAID).all()
+    groomsmen = Guest.objects.filter(role=Role.GROOMSMAN).order_by('last_name').all()
+    maids = Guest.objects.filter(role=Role.BRIDESMAID).order_by('last_name').all()
 
     places = PlaceOfInterest.objects.all()
 

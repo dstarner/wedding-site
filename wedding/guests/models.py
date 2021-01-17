@@ -102,7 +102,6 @@ class Guest(models.Model):
         null=True, blank=True, upload_to=guest_picture_path,
         help_text='Needed if they are in the wedding party'
     )
-    details = models.TextField(blank=True, default='', help_text='Needed only if they are in the wedding party.')
 
     class Meta:
         ordering = ['party', 'last_name']

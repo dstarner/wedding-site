@@ -26,7 +26,7 @@ class PartyAdmin(admin.ModelAdmin):
             'fields': ('is_attending', 'comments'),
         }),
     )
-    list_filter = ('tier', 'association', 'side', 'is_invited', 'rehearsal_dinner', 'contact_method', 'is_attending')
+    list_filter = ( 'type', 'tier', 'association', 'side', 'is_invited', 'rehearsal_dinner', 'contact_method', 'is_attending')
     list_display = ('full_name', 'guests_allowed', 'association', 'tier', 'side', 'is_invited', 'is_attending')
     inlines = [GuestAdmin]
     readonly_fields = ('is_attending', 'comments')
