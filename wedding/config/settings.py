@@ -141,8 +141,8 @@ GOOGLE_API_KEY = 'AIzaSyCUcCKQBR36PWCZhJLllqwrLCmqViaSofs'
 MATERIAL_ADMIN_SITE = {
     'HEADER':  'Evening of Love',
     'TITLE':  'Evening of Love',
-    # 'MAIN_BG_COLOR':  'color',
-    # 'MAIN_HOVER_COLOR':  'color',
+    'MAIN_BG_COLOR':  '#6a2931',
+    'MAIN_HOVER_COLOR':  '#956267',
     # 'PROFILE_PICTURE':  'path/to/image',
     # 'PROFILE_BG':  'path/to/image',
     # 'LOGIN_LOGO':  'path/to/image',

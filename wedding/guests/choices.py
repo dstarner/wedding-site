@@ -1,6 +1,13 @@
 from django.db import models
 
 
+class PartyType(models.TextChoices):
+
+    INDIVIDUAL = '& Guest', 'Individual with Guest'
+    COUPLE = 'Couple', 'Couple with Two Known Guests'
+    FAMILY = 'Family', 'Family with Kids'
+
+
 class IndividualAssociation(models.TextChoices):
     """Which side of the family are they associated with 
     """

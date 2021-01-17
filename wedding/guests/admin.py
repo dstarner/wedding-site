@@ -14,7 +14,7 @@ class PartyAdmin(admin.ModelAdmin):
     icon_name = 'group_add'
     fieldsets = (
         (None, {
-            'fields': ('name', 'side', 'association'),
+            'fields': ('name', 'type', 'side', 'association'),
         }),
         ('Wedding Involvement', {
             'fields': ('tier', 'guests_allowed', 'is_invited', 'rehearsal_dinner'),
@@ -27,7 +27,7 @@ class PartyAdmin(admin.ModelAdmin):
         }),
     )
     list_filter = ('tier', 'side', 'is_invited', 'rehearsal_dinner', 'contact_method', 'is_attending')
-    list_display = ('name', 'guests_allowed', 'tier', 'side', 'is_invited', 'is_attending')
+    list_display = ('full_name', 'guests_allowed', 'tier', 'side', 'is_invited', 'is_attending')
     inlines = [GuestAdmin]
     readonly_fields = ('is_attending', 'comments')
     search_fields = ('name',)

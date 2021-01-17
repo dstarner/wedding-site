@@ -4,14 +4,16 @@ from address.models import AddressField
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
-from .choices import AssociationType, IndividualAssociation, PreferredContactMethod, PriorityTier, Role
+from .choices import (
+    AssociationType, IndividualAssociation, PreferredContactMethod, PartyType, PriorityTier, Role
+)
 
 
 class Party(models.Model):
 
     name = models.CharField(
         'Name',
-        max_length=64, default='Mr & Mrs', help_text='Easy way to reference party'
+        max_length=64, default='', help_text='First & last of main party member'
     )
 
     email = models.EmailField(
@@ -32,6 +34,11 @@ class Party(models.Model):
         max_length=16, default=PreferredContactMethod.MAIL, choices=PreferredContactMethod.choices
     )
 
+    type = models.CharField(
+        'Party Type',
+        max_length=32, choices=PartyType.choices, default=PartyType.INDIVIDUAL,
+        help_text='Defines the party type and will automatically suffix correctly'
+    )
     tier = models.IntegerField('Priority Tier', choices=PriorityTier.choices)
     association = models.CharField('Association', max_length=16, choices=AssociationType.choices)
     side = models.CharField('Wedding Side', max_length=8, choices=IndividualAssociation.choices)
@@ -55,12 +62,16 @@ class Party(models.Model):
         # TODO: check if not self.is_invited but invite / std was sent:
         return super().save(*args, **kwargs)
 
+    @property
+    def full_name(self):
+        return f'{self.name} {self.type}'
+
     def __str__(self):
         guests_saved = self.guests.count()
         suffix = ''
         if guests_saved != self.guests_allowed:
             suffix = f' (of {self.guests_allowed})'
-        return f'{self.name} Party of {guests_saved if guests_saved else self.guests_allowed}{suffix}'
+        return f'{self.name} of {guests_saved if guests_saved else self.guests_allowed}{suffix}'
 
 
 def guest_picture_path(instance, filename):
