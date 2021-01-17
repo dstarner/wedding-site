@@ -16,10 +16,6 @@ class Party(models.Model):
         max_length=64, default='', help_text='First & last of main party member'
     )
 
-    email = models.EmailField(
-        'Primary Email',
-        help_text='Email to contact main party individual, if available.', blank=True, null=True
-    )
     phone = PhoneNumberField(
         blank=True, null=True,
         help_text='Phone number to contact main party individual, if available.'
@@ -70,7 +66,7 @@ class Party(models.Model):
             Guest.objects.create(
                 first_name=first_name, party=self,
                 last_name=last_name,
-                email=self.email, phone=self.phone
+                phone=self.phone
             )
 
     @property
@@ -97,7 +93,6 @@ class Guest(models.Model):
     first_name = models.CharField('First Name', max_length=64)
     last_name = models.CharField('Last Name', max_length=64)
 
-    email = models.EmailField('Email', blank=True, null=True)
     phone = PhoneNumberField(blank=True, null=True, help_text='Needs "+1" and then 10 digit, ie +17165554444')
 
     role = models.CharField('Wedding Role', max_length=16, blank=True, null=True, choices=Role.choices)

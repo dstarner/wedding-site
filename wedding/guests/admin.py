@@ -20,14 +20,14 @@ class PartyAdmin(admin.ModelAdmin):
             'fields': ('tier', 'guests_allowed', 'is_invited', 'rehearsal_dinner'),
         }),
         ('Contact Information', {
-            'fields': ('contact_method', 'address', 'second_address', 'email', 'phone'),
+            'fields': ('contact_method', 'address', 'second_address', 'phone'),
         }),
         ('Responses', {
             'fields': ('is_attending', 'comments'),
         }),
     )
-    list_filter = ('tier', 'side', 'is_invited', 'rehearsal_dinner', 'contact_method', 'is_attending')
-    list_display = ('full_name', 'guests_allowed', 'tier', 'side', 'is_invited', 'is_attending')
+    list_filter = ('tier', 'association', 'side', 'is_invited', 'rehearsal_dinner', 'contact_method', 'is_attending')
+    list_display = ('full_name', 'guests_allowed', 'association', 'tier', 'side', 'is_invited', 'is_attending')
     inlines = [GuestAdmin]
     readonly_fields = ('is_attending', 'comments')
     search_fields = ('name',)

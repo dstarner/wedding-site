@@ -37,7 +37,6 @@ class PriorityTier(models.IntegerChoices):
 class PreferredContactMethod(models.TextChoices):
     """How should we contact the party?
     """
-    EMAIL = 'email' 'Email'
     PHONE = 'phone', 'Phone (Texting)'
     MAIL = 'mail', 'Postal Mail'
 
