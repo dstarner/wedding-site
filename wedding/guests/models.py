@@ -86,6 +86,10 @@ class Guest(models.Model):
     first_name = models.CharField('First Name', max_length=64)
     last_name = models.CharField('Last Name', max_length=64)
 
+    party_contact = models.BooleanField(
+        'Party Contact',
+        default=False, help_text='Use the same contact info as the party? Leave the following blank.'
+    )
     email = models.EmailField('Email', blank=True, null=True)
     phone = PhoneNumberField(blank=True, null=True, help_text='Needs "+1" and then 10 digit, ie +17165554444')
 
@@ -101,6 +105,12 @@ class Guest(models.Model):
     class Meta:
         ordering = ['party', 'last_name']
         default_related_name = 'guests'
+
+    def save(self, *args, **kwargs):
+        if self.party_contact:
+            self.email = self.party.email
+            self.phone = self.party.phone
+        return super().save(*args, **kwargs)
     
     @property
     def name(self):

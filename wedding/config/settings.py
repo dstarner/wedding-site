@@ -145,8 +145,8 @@ MATERIAL_ADMIN_SITE = {
     'MAIN_HOVER_COLOR':  '#956267',
     # 'PROFILE_PICTURE':  'path/to/image',
     # 'PROFILE_BG':  'path/to/image',
-    # 'LOGIN_LOGO':  'path/to/image',
-    # 'LOGOUT_BG':  'path/to/image',
+    # 'LOGIN_LOGO':  '/images/mountains-backdrop.jpg',
+    # 'LOGOUT_BG':  '/images/mountains-backdrop.jpg',
     'SHOW_THEMES':  True,  #  Show default admin themes button
     'TRAY_REVERSE': True,  # Hide object-tools and additional-submit-line by default
     'SHOW_COUNTS': True, # Show instances counts for each model
