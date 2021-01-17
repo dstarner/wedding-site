@@ -28,6 +28,9 @@ class Party(models.Model):
         blank=True, null=True,
         help_text='Address of the main party individual, if available.'
     )
+    second_address = models.CharField(
+        'Second Address', max_length=64, null=True, blank=True, help_text='Apartment Number if needed'
+    )
 
     contact_method = models.CharField(
         'Preferred Contact Method',
@@ -39,8 +42,8 @@ class Party(models.Model):
         max_length=32, choices=PartyType.choices, default=PartyType.INDIVIDUAL,
         help_text='Defines the party type and will automatically suffix correctly'
     )
-    tier = models.IntegerField('Priority Tier', choices=PriorityTier.choices)
-    association = models.CharField('Association', max_length=16, choices=AssociationType.choices)
+    tier = models.IntegerField('Priority Tier', choices=PriorityTier.choices, default=PriorityTier.HIGH)
+    association = models.CharField('Association', max_length=16, choices=AssociationType.choices, default=AssociationType.FRIEND)
     side = models.CharField('Wedding Side', max_length=8, choices=IndividualAssociation.choices)
 
     is_invited = models.BooleanField(default=False, help_text='Whether or not the party is actually invited.')
@@ -60,7 +63,15 @@ class Party(models.Model):
         if self.tier == PriorityTier.WEDDING_PARTY:
             self.rehearsal_dinner = True
         # TODO: check if not self.is_invited but invite / std was sent:
-        return super().save(*args, **kwargs)
+        res = super().save(*args, **kwargs)
+
+        if self.guests.count() == 0 and len(self.name.split(' ')) == 2:
+            first_name, last_name = self.name.split(' ')
+            Guest.objects.create(
+                first_name=first_name, party=self,
+                last_name=last_name,
+                email=self.email, phone=self.phone
+            )
 
     @property
     def full_name(self):
@@ -68,10 +79,10 @@ class Party(models.Model):
 
     def __str__(self):
         guests_saved = self.guests.count()
-        suffix = ''
+        suffix = f' - {guests_saved}'
         if guests_saved != self.guests_allowed:
-            suffix = f' (of {self.guests_allowed})'
-        return f'{self.name} of {guests_saved if guests_saved else self.guests_allowed}{suffix}'
+            suffix = f' - {guests_saved} of {self.guests_allowed}'
+        return f'{self.name} {suffix}'
 
 
 def guest_picture_path(instance, filename):
@@ -86,10 +97,6 @@ class Guest(models.Model):
     first_name = models.CharField('First Name', max_length=64)
     last_name = models.CharField('Last Name', max_length=64)
 
-    party_contact = models.BooleanField(
-        'Party Contact',
-        default=False, help_text='Use the same contact info as the party? Leave the following blank.'
-    )
     email = models.EmailField('Email', blank=True, null=True)
     phone = PhoneNumberField(blank=True, null=True, help_text='Needs "+1" and then 10 digit, ie +17165554444')
 
@@ -107,9 +114,6 @@ class Guest(models.Model):
         default_related_name = 'guests'
 
     def save(self, *args, **kwargs):
-        if self.party_contact:
-            self.email = self.party.email
-            self.phone = self.party.phone
         return super().save(*args, **kwargs)
     
     @property

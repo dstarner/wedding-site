@@ -20,7 +20,7 @@ class PartyAdmin(admin.ModelAdmin):
             'fields': ('tier', 'guests_allowed', 'is_invited', 'rehearsal_dinner'),
         }),
         ('Contact Information', {
-            'fields': ('contact_method', 'address', 'email', 'phone'),
+            'fields': ('contact_method', 'address', 'second_address', 'email', 'phone'),
         }),
         ('Responses', {
             'fields': ('is_attending', 'comments'),
