@@ -57,7 +57,10 @@ class Party(models.Model):
 
     def __str__(self):
         guests_saved = self.guests.count()
-        return f'{self.name} Party of {guests_saved if guests_saved else self.guests_allowed}'
+        suffix = ''
+        if guests_saved != self.guests_allowed:
+            suffix = f' (of {self.guests_allowed})'
+        return f'{self.name} Party of {guests_saved if guests_saved else self.guests_allowed}{suffix}'
 
 
 def guest_picture_path(instance, filename):
@@ -73,13 +76,16 @@ class Guest(models.Model):
     last_name = models.CharField('Last Name', max_length=64)
 
     email = models.EmailField('Email', blank=True, null=True)
-    phone = PhoneNumberField(blank=True, null=True)
+    phone = PhoneNumberField(blank=True, null=True, help_text='Needs "+1" and then 10 digit, ie +17165554444')
 
     role = models.CharField('Wedding Role', max_length=16, blank=True, null=True, choices=Role.choices)
     is_child = models.BooleanField(default=False)
 
-    picture = models.ImageField(null=True, upload_to=guest_picture_path)
-    details = models.TextField(blank=True, default='')
+    picture = models.ImageField(
+        null=True, blank=True, upload_to=guest_picture_path,
+        help_text='Needed if they are in the wedding party'
+    )
+    details = models.TextField(blank=True, default='', help_text='Needed only if they are in the wedding party.')
 
     class Meta:
         ordering = ['party', 'last_name']
