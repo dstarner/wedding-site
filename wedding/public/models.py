@@ -34,9 +34,9 @@ def _create_thumbnail(image_field: ImageFieldFile, thumbnail_image_field: ImageF
         InMemoryUploadedFile(
             image_file,
             None, '',
-            guess_type(image_field.file.name),
-            image.size,
-            'utf-8',
+            size=image.size,
+            content_type=guess_type(image_field.file.name),
+            charset='utf-8',
         ),
         save=False
     )
@@ -117,7 +117,7 @@ class GalleryItem(models.Model):
     thumbnail = models.ImageField(null=True, blank=True, upload_to=gallery_thumbnail_path)
 
     def save(self, *args, **kwargs):
-        _create_thumbnail(self.picture, self.thumbnail, (300, 300))
+        _create_thumbnail(image_field=self.picture, thumbnail_image_field=self.thumbnail, size=(300, 300))
         return super().save(*args, **kwargs)
 
     def __str__(self):
