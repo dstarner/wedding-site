@@ -29,13 +29,18 @@ def _create_thumbnail(image_field: ImageFieldFile, thumbnail_image_field: ImageF
     image.thumbnail(size=size)
     image_file = BytesIO()
     image.save(image_file, image.format)
+
+    mimetype = guess_type(image_field.file.name)
+    if mimetype is not None and not isinstance(mimetype, str):
+        mimetype = mimetype[0]
+
     thumbnail_image_field.save(
         image_field.name,
         InMemoryUploadedFile(
             image_file,
             None, '',
             size=image.size,
-            content_type=guess_type(image_field.file.name),
+            content_type=mimetype,
             charset='utf-8',
         ),
         save=False
