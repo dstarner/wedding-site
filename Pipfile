@@ -15,6 +15,7 @@ gunicorn = "*"
 django-heroku = "*"
 django-storages = "*"
 boto3 = "*"
+django-manifest-loader = "*"
 
 [dev-packages]
 

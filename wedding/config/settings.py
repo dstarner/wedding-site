@@ -45,10 +45,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'address',
+    'manifest_loader',
     'phonenumber_field',
 
-    'wedding.public',
     'wedding.guests',
+    'wedding.frontend',
 ]
 
 MIDDLEWARE = [
@@ -132,6 +133,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'dist'  # the directory webpack outputs to
+]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -139,8 +143,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 GOOGLE_API_KEY = 'AIzaSyCUcCKQBR36PWCZhJLllqwrLCmqViaSofs'
 
 MATERIAL_ADMIN_SITE = {
-    'HEADER':  'Turning the Korner',
-    'TITLE':  'Turning the Korner',
+    'HEADER':  'Dan and Bridget',
+    'TITLE':  'Dan and Bridget',
     'SHOW_THEMES':  True,  #  Show default admin themes button
     'TRAY_REVERSE': True,  # Hide object-tools and additional-submit-line by default
     'SHOW_COUNTS': True, # Show instances counts for each model

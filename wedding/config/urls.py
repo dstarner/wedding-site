@@ -19,12 +19,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
-from wedding.public.urls import urlpatterns as public_urlpatterns
+from wedding.frontend.urls import urlpatterns as frontend_urlpatterns
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-] + public_urlpatterns
+] + frontend_urlpatterns
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
