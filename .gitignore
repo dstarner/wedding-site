@@ -6,7 +6,6 @@ __pycache__/
 policy.json
 
 node_modules
-dist
 
 wedding/media
 wedding/staticfiles

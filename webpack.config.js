@@ -22,6 +22,6 @@ module.exports = {
     ],
     output: {
         filename: '[name].[contenthash].js', // renames files from example.js to example.8f77someHash8adfa.js
-        path: path.resolve(__dirname, 'wedding/dist'),
+        path: path.resolve(__dirname, 'wedding/jsdist'),
     },
 };
