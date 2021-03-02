@@ -22,8 +22,8 @@ class PartyAdmin(admin.ModelAdmin):
         ('Contact Information', {
             'fields': ('contact_method', 'address', 'second_address', 'phone'),
         }),
-        ('Responses', {
-            'fields': ('is_attending', 'comments'),
+        ('Logistics', {
+            'fields': ('save_the_date_sent', 'invitation_sent', 'is_attending', 'comments'),
         }),
     )
     list_filter = ( 'type', 'tier', 'association', 'side', 'is_invited', 'rehearsal_dinner', 'contact_method', 'is_attending')

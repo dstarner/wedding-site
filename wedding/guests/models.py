@@ -48,6 +48,8 @@ class Party(models.Model):
         default=False, help_text='Whether the party is invited to the rehearsal dinner'
     )
 
+    save_the_date_sent = models.BooleanField(default=False)
+    invitation_sent = models.BooleanField(default=False)
     is_attending = models.BooleanField(null=True)
     comments = models.TextField(null=True, blank=True)
 
