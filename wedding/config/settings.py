@@ -140,7 +140,7 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-GOOGLE_API_KEY = 'AIzaSyCUcCKQBR36PWCZhJLllqwrLCmqViaSofs'
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', default='')
 
 MATERIAL_ADMIN_SITE = {
     'HEADER':  'Dan and Bridget',
