@@ -115,6 +115,9 @@ class Guest(models.Model):
     @property
     def name(self):
         return f'{self.first_name} {self.last_name}'
+    
+    def __getattr__(self, attr):
+        return getattr(self.party, attr)
 
     def __str__(self):
         return f'Guest: {self.name}'
