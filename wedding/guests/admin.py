@@ -1,6 +1,30 @@
+import csv
 from django.contrib import admin
+from django.http import HttpResponse
 
 from .models import Party, Guest
+
+
+class ExportCsvMixin:
+
+    def export_as_csv(self, request, queryset):
+
+        meta = self.model._meta
+        field_names = [field.name for field in meta.fields]
+
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename={}.csv'.format(meta)
+        writer = csv.writer(response)
+
+        writer.writerow(field_names)
+        for obj in queryset:
+            row = writer.writerow([getattr(obj, field) for field in field_names])
+
+        return response
+
+    export_as_csv.short_description = "Export Selected"
+
+
 
 
 class GuestAdmin(admin.StackedInline):
@@ -10,8 +34,10 @@ class GuestAdmin(admin.StackedInline):
 
 
 @admin.register(Party)
-class PartyAdmin(admin.ModelAdmin):
+class PartyAdmin(admin.ModelAdmin, ExportCsvMixin):
     icon_name = 'group_add'
+    actions = ["export_as_csv"]
+
     fieldsets = (
         (None, {
             'fields': ('name', 'type', 'side', 'association'),
@@ -37,8 +63,9 @@ class PartyAdmin(admin.ModelAdmin):
 
 
 @admin.register(Guest)
-class GuestAdmin(admin.ModelAdmin):
+class GuestAdmin(admin.ModelAdmin, ExportCsvMixin):
     icon_name = 'how_to_reg'
+    actions = ["export_as_csv"]
 
     list_display = ('first_name', 'last_name', 'party')
     search_fields = ('last_name', 'first_name', 'party__name')
