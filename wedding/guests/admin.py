@@ -58,7 +58,7 @@ class PartyAdmin(admin.ModelAdmin, ExportCsvMixin):
     )
     list_display = ('full_name', 'guests_allowed', 'association', 'tier', 'side', 'is_invited', 'is_attending')
     inlines = [GuestAdmin]
-    readonly_fields = ('is_attending', 'comments')
+    readonly_fields = ('code', 'is_attending', 'comments')
     search_fields = ('name',)
 
 
