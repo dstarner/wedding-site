@@ -40,7 +40,7 @@ class PartyAdmin(admin.ModelAdmin, ExportCsvMixin):
 
     fieldsets = (
         (None, {
-            'fields': ('name', 'type', 'side', 'association'),
+            'fields': ('name', 'type', 'code', 'side', 'association'),
         }),
         ('Wedding Involvement', {
             'fields': ('tier', 'guests_allowed', 'is_invited', 'rehearsal_dinner'),
