@@ -1,4 +1,5 @@
 import os.path
+import random, string
 
 from address.models import AddressField
 from django.db import models
@@ -53,6 +54,8 @@ class Party(models.Model):
     is_attending = models.BooleanField(null=True)
     comments = models.TextField(null=True, blank=True)
 
+    code = models.CharField('Party Code', max_length=4, default='', help_text='Unique code that identifies the party')
+
     class Meta:
         verbose_name_plural = 'Parties'
         ordering = ['tier']
@@ -61,6 +64,9 @@ class Party(models.Model):
         if self.tier == PriorityTier.WEDDING_PARTY:
             self.rehearsal_dinner = True
         # TODO: check if not self.is_invited but invite / std was sent:
+
+        if self.code == '':
+            self.code = ''.join(random.choices(string.ascii_letters + string.digits, k=4))
         res = super().save(*args, **kwargs)
 
         if self.guests.count() == 0 and len(self.name.split(' ')) == 2:
