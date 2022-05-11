@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+     	<meta
+			name="viewport"
+			content="minimum-scale=1, initial-scale=1, width=device-width"
+		/>
+     	<meta name="description" content="">
+      	<meta name="author" content="themeforest.net/user/doubleeight/portfolio">
+      	<title>{{ party.name }} | Dan &amp; Bridget</title>
+        
+        <link rel="icon" href="{% static 'images/favicon.png' %}">
+		<link rel="stylesheet" href="{% static "css/tailwind.css" %}">
+
+        <!-- Font -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Euphoria+Script&family=Lato&family=Sansita+Swashed:wght@400;800&&family=Sriracha&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+
+	<body class="bg-gray-200">
+        <div class="bg-gray-200 min-h-screen pt-2 font-mono my-16">
+            <div class="container mx-auto">
+                <div class="inputs w-full max-w-2xl p-6 mx-auto">
+                    <h2 class="text-2xl text-gray-900">{{ party.name }} RSVP (Party of {{ party.guests_allowed }})</h2>
+                    <form class="mt-6 border-t border-gray-400 pt-4">
+                        <div class='flex flex-wrap -mx-3 mb-6'>
+                            <div class="personal w-full border-gray-400 pt-4">
+                                <div class="flex items-center justify-between mt-4">
+                                    <div class='w-full md:w-1/2 px-3 mb-6'>
+                                        <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' >Joyfully Accept(s)</label>
+                                        <input type='number' class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text'  required>
+                                    </div>
+                                    <div class='w-full md:w-1/2 px-3 mb-6'>
+                                        <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' >Regretfully Decline(s)</label>
+                                        <input value="0" readonly disabled type="number" class='disabled:opacity-60 appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text'  required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+	</body>
+</html>
