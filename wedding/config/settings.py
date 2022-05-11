@@ -134,7 +134,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'jsdist'  # the directory webpack outputs to
+    BASE_DIR / 'static'  # the directory webpack outputs to
 ]
 
 MEDIA_URL = '/media/'
