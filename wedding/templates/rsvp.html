@@ -1,4 +1,5 @@
 {% load static %}
+{% load custom %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -27,18 +28,27 @@
             <div class="container mx-auto">
                 <div class="inputs w-full max-w-2xl p-6 mx-auto">
                     <h2 class="text-2xl text-gray-900">{{ party.name }} RSVP (Party of {{ party.guests_allowed }})</h2>
-                    <form class="mt-6 border-t border-gray-400 pt-4">
+                    <form method="post" class="mt-6 border-t border-gray-400 pt-4">
+                        {% csrf_token %}
                         <div class='flex flex-wrap -mx-3 mb-6'>
                             <div class="personal w-full border-gray-400 pt-4">
+                                {% if msg %}
+                                <div class="bg-red-100 rounded-lg py-3 px-4 mb-4 text-base text-red-700 mb-3" role="alert">
+                                    {{ msg }}
+                                </div>
+                                {% endif %}
                                 <div class="flex items-center justify-between mt-4">
                                     <div class='w-full md:w-1/2 px-3 mb-6'>
                                         <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' >Joyfully Accept(s)</label>
-                                        <input type='number' class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text'  required>
+                                        <input type='number' min='0' id="accepts" name='accepts' value="{{ party.attending }}" class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' required>
                                     </div>
                                     <div class='w-full md:w-1/2 px-3 mb-6'>
                                         <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' >Regretfully Decline(s)</label>
-                                        <input value="0" readonly disabled type="number" class='disabled:opacity-60 appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text'  required>
+                                        <input value="{{ party.guests_allowed|subtract:party.attending }}" readonly disabled id="declines" type="number" class='disabled:opacity-60 appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' required>
                                     </div>
+                                </div>
+                                <div class="flex items-center justify-center mt-4">
+                                    <button type="submit" class="appearance-none bg-gray-200 text-gray-900 shadow-sm border border-gray-400 rounded-md" style="padding: .25em;">Continue</button>
                                 </div>
                             </div>
                         </div>
@@ -46,5 +56,21 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            var source = document.getElementById('accepts');
+            var result = document.getElementById('declines');
+
+            var inputHandler = function(e) {
+                if (e.target.value === "") {
+                    return;
+                }
+                result.value = Math.max(({{ party.guests_allowed }} - e.target.value || 0), 0);
+            }
+
+            source.addEventListener('input', inputHandler);
+            source.addEventListener('propertychange', inputHandler); // for IE8
+        </script>
+
 	</body>
 </html>

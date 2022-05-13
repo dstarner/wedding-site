@@ -1,0 +1,23 @@
+<div class="w-full" style="margin-bottom: 3.5em">
+    <div class="flex items-center justify-between mt-4">
+        <div class='w-full md:w-1/2 px-3 mb-6'>
+            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' >{{ forloop.counter|add:offset }}. First Name</label>
+            <input name='first_{{ forloop.counter0|add:offset }}' type='text' required value="{{ guest.first_name }}" class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'>
+        </div>
+        <div class='w-full md:w-1/2 px-3 mb-6'>
+            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' >{{ forloop.counter|add:offset }}. Last Name</label>
+            <input name="last_{{ forloop.counter0|add:offset }}" type='text' required value="{{ guest.last_name }}" class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'>
+        </div>
+    </div>
+    <div class='w-full md:w-full px-3 mb-6'>
+        <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>{{ forloop.counter|add:offset }}. Meal Choice</label>
+        <div class="flex-shrink w-full inline-block relative">
+            <select required name="meal_{{ forloop.counter0|add:offset }}" value="{{ guest.meal }}" class="block appearance-none text-gray-600 w-full bg-white border border-gray-400 shadow-inner px-4 py-2 pr-8 rounded">
+                <option disabled {% if not guest.meal %}selected{% endif %} value>choose a meal ...</option>
+                <option value="chicken">Chicken</option>
+                <option value="steak">Steak</option>
+                <option value="vegetarian">Vegetarian Pasta</option>
+            </select>
+        </div>
+    </div>
+</div>

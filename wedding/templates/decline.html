@@ -1,0 +1,48 @@
+{% load static %}
+{% load custom %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+     	<meta
+			name="viewport"
+			content="minimum-scale=1, initial-scale=1, width=device-width"
+		/>
+     	<meta name="description" content="">
+      	<meta name="author" content="themeforest.net/user/doubleeight/portfolio">
+      	<title>{{ party.name }} | Dan &amp; Bridget</title>
+        
+        <link rel="icon" href="{% static 'images/favicon.png' %}">
+		<link rel="stylesheet" href="{% static "css/tailwind.css" %}">
+
+        <!-- Font -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Euphoria+Script&family=Lato&family=Sansita+Swashed:wght@400;800&&family=Sriracha&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+
+	<body class="bg-gray-200">
+        <div class="bg-gray-200 min-h-screen pt-2 font-mono my-16">
+            <div class="container mx-auto">
+                <div class="inputs w-full max-w-2xl p-6 mx-auto">
+                    <h2 class="text-2xl text-gray-900">{{ party.name }} RSVP (Party of {{ party.guests_allowed }})</h2>
+                    <form method="post" class="mt-6 border-t border-gray-400 pt-4">
+                        {% csrf_token %}
+                        <div class='flex flex-wrap -mx-3 mb-6'>
+                            <div class="personal w-full border-gray-400 pt-4">
+                                <div class="bg-red-100 rounded-lg py-3 px-4 mb-4 text-base text-red-700 mb-3" role="alert">
+                                    We are sorry you can&apos;t attend, but we appreciate you filling out the RSVP.
+                                </div>
+                                <div class="flex items-center justify-center mt-4">
+                                    <a href="/" class="appearance-none bg-gray-200 p-1 mr-2 text-gray-900 shadow-sm border border-gray-400 rounded-md">Back</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+	</body>
+</html>

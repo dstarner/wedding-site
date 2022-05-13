@@ -51,7 +51,7 @@ class Party(models.Model):
 
     save_the_date_sent = models.BooleanField(default=False)
     invitation_sent = models.BooleanField(default=False)
-    is_attending = models.BooleanField(null=True)
+    attending = models.IntegerField('# Attending', default=0)
     comments = models.TextField(null=True, blank=True)
 
     code = models.CharField('Party Code', editable=False, unique=True, max_length=4, default='', help_text='Unique code that identifies the party')
@@ -94,12 +94,21 @@ def guest_picture_path(instance, filename):
     return f'guests/pictures/{instance.last_name}_{instance.first_name}{extension}'
 
 
+class MealChoices(models.TextChoices):
+
+    CHICKEN = 'chicken', 'Chicken'
+    STEAK = 'steak', 'steak'
+    VEGGIE = 'vegetarian', 'Vegetarian Pasta'
+
+
 class Guest(models.Model):
 
     party = models.ForeignKey(Party, on_delete=models.PROTECT)
 
     first_name = models.CharField('First Name', max_length=64)
     last_name = models.CharField('Last Name', max_length=64)
+
+    meal = models.CharField(null=True, choices=MealChoices.choices, max_length=12)
 
     phone = PhoneNumberField(blank=True, null=True, help_text='Needs "+1" and then 10 digit, ie +17165554444')
 
@@ -112,7 +121,7 @@ class Guest(models.Model):
     )
 
     class Meta:
-        ordering = ['party', 'last_name']
+        ordering = ['party', 'id']
         default_related_name = 'guests'
 
     def save(self, *args, **kwargs):

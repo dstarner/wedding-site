@@ -48,8 +48,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'material',
     'material.admin',
-    'material.admin.default',
 
     'django.contrib.auth',
     'django.contrib.contenttypes',

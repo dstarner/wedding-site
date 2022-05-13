@@ -49,16 +49,16 @@ class PartyAdmin(admin.ModelAdmin, ExportCsvMixin):
             'fields': ('contact_method', 'address', 'second_address', 'phone'),
         }),
         ('Logistics', {
-            'fields': ('save_the_date_sent', 'invitation_sent', 'is_attending', 'comments'),
+            'fields': ('save_the_date_sent', 'invitation_sent', 'attending', 'comments'),
         }),
     )
     list_filter = (
         'type', 'tier', 'association', 'side', 'save_the_date_sent', 'invitation_sent',
-        'is_invited', 'is_attending', 'rehearsal_dinner', 'contact_method',
+        'is_invited', 'attending', 'rehearsal_dinner', 'contact_method',
     )
-    list_display = ('full_name', 'guests_allowed', 'association', 'tier', 'side', 'is_invited', 'is_attending')
+    list_display = ('full_name', 'guests_allowed', 'association', 'tier', 'side', 'is_invited', 'attending')
     inlines = [GuestAdmin]
-    readonly_fields = ('code', 'is_attending', 'comments')
+    readonly_fields = ('code', 'attending', 'comments')
     search_fields = ('name',)
 
 

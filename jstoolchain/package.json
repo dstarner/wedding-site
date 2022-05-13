@@ -5,6 +5,6 @@
     "tailwindcss": "^3.0.24"
   },
   "scripts": {
-    "build": "postcss css/tailwind.css -o ../wedding/frontend/static/css/tailwind.css"
+    "build": "postcss css/tailwind.css -o ../wedding/static/css/tailwind.css"
   }
 }
