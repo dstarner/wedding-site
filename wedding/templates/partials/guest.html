@@ -20,4 +20,10 @@
             </select>
         </div>
     </div>
+    <div class='w-full md:w-full px-3 mb-6'>
+        <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>{{ forloop.counter|add:offset }}. Allergies &amp; Requests</label>
+        <div class="flex-shrink w-full inline-block relative">
+            <textarea placeholder="Leave blank for none" name="requests_{{ forloop.counter0|add:offset }}" class="block appearance-none text-gray-600 w-full bg-white border border-gray-400 shadow-inner px-4 py-2 pr-8 rounded">{{ guest.requests }}</textarea>
+        </div>
+    </div>
 </div>

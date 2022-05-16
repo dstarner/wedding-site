@@ -57,6 +57,7 @@ def rsvp_guests(request, code):
                     'first_name': request.POST[f'first_{idx}'],
                     'last_name': request.POST[f'last_{idx}'],
                     'meal': request.POST[f'meal_{idx}'],
+                    'requests': request.POST[f'requests_{idx}'],
                 }
             except KeyError:
                 return render(request, 'guests.html', {
@@ -72,7 +73,8 @@ def rsvp_guests(request, code):
                 guest = Guest.objects.create(**details, party=party)
             else:
                 guest.meal = details['meal']
-                guest.save(update_fields=['meal'])
+                guest.requests = details['requests']
+                guest.save(update_fields=['meal', 'requests'])
 
         return render(request, 'guests.html', {
             'party': party,
