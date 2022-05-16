@@ -160,7 +160,7 @@ GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', default='')
 MATERIAL_ADMIN_SITE = {
     'HEADER':  'Dan and Bridget',
     'TITLE':  'Dan and Bridget',
-    'SHOW_THEMES':  True,  #  Show default admin themes button
+    'SHOW_THEMES':  False,  #  Show default admin themes button
     'TRAY_REVERSE': True,  # Hide object-tools and additional-submit-line by default
     'SHOW_COUNTS': True, # Show instances counts for each model
     'APP_ICONS': {  # Set icons for applications(lowercase), including 3rd party apps, {'application_name': 'material_icon_name', ...}
