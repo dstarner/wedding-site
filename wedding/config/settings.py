@@ -25,7 +25,7 @@ PROJECT_DIR = BASE_DIR.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '3bs)rdz_t+-pt#7o#^w^w5z=^v$#yzghsavvlne&)nn$@qfog@'
+SECRET_KEY = config('SECRET_KEY', default='3bs)rdz_t+-pt#7o#^w^w5z=^v$#yzghsavvlne&)nn$@qfog@')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'true').lower() in ['true']
