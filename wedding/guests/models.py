@@ -51,6 +51,7 @@ class Party(models.Model):
 
     save_the_date_sent = models.BooleanField(default=False)
     invitation_sent = models.BooleanField(default=False)
+    rsvped = models.BooleanField(default=False)
     attending = models.IntegerField('# Attending', default=0)
     comments = models.TextField(null=True, blank=True)
 
@@ -64,6 +65,9 @@ class Party(models.Model):
         if self.tier == PriorityTier.WEDDING_PARTY:
             self.rehearsal_dinner = True
         # TODO: check if not self.is_invited but invite / std was sent:
+
+        if self.attending > 0:
+            self.rsvped = True
 
         if self.code == '':
             self.code = ''.join(random.choices(string.ascii_letters + string.digits, k=4))
@@ -108,7 +112,7 @@ class Guest(models.Model):
     first_name = models.CharField('First Name', max_length=64)
     last_name = models.CharField('Last Name', max_length=64)
 
-    meal = models.CharField(null=True, choices=MealChoices.choices, max_length=12)
+    meal = models.CharField(null=True, blank=True, choices=MealChoices.choices, max_length=12)
 
     requests = models.TextField(default='', help_text='Allergies and special requests')
 

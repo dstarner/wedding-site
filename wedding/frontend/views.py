@@ -34,7 +34,8 @@ def rsvp_party(request, code):
             })
         
         party.attending = accepts
-        party.save(update_fields=['attending'])
+        party.rsvped = True
+        party.save(update_fields=['attending', 'rsvped'])
 
         Guest.objects.filter(id__in=party.guests.all()[party.attending:].values_list('id')).delete()
 
