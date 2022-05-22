@@ -48,9 +48,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'material',
-    'material.admin',
+    'jazzmin',
 
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -157,19 +157,19 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', default='')
 
-MATERIAL_ADMIN_SITE = {
-    'HEADER':  'Dan and Bridget',
-    'TITLE':  'Dan and Bridget',
-    'SHOW_THEMES':  False,  #  Show default admin themes button
-    'TRAY_REVERSE': True,  # Hide object-tools and additional-submit-line by default
-    'SHOW_COUNTS': True, # Show instances counts for each model
-    'APP_ICONS': {  # Set icons for applications(lowercase), including 3rd party apps, {'application_name': 'material_icon_name', ...}
-        'guests': 'group_add'
-    },
-    'MODEL_ICONS': {  # Set icons for models(lowercase), including 3rd party models, {'model_name': 'material_icon_name', ...}
-        'site': 'contact_mail',
-    }
+JAZZMIN_SETTINGS = {
+    "site_title": "Starner Wedding",
+    "site_header": "Starner Wedding",
+    "site_brand": "Starner Wedding",
+    "site_icon": None,
+    "welcome_sign": "Dan & Bridget's Wedding",
+    "copyright": "Dan Starner",
+    "search_model": "guests.Party",
+
+    "hide_apps": ["address"],
+    "show_ui_builder": True
 }
+
 
 django_heroku.settings(locals())
 

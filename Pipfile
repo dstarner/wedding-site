@@ -8,7 +8,6 @@ django = "*"
 django-phonenumber-field = "*"
 django-address = "*"
 phonenumbers = "*"
-django-material-admin = "*"
 pillow = "*"
 sorl-thumbnail = "*"
 gunicorn = "*"
@@ -17,6 +16,7 @@ django-storages = "*"
 boto3 = "*"
 django-manifest-loader = "*"
 python-decouple = "*"
+django-jazzmin = "*"
 
 [dev-packages]
 
