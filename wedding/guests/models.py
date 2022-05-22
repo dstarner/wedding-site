@@ -114,7 +114,7 @@ class Guest(models.Model):
 
     meal = models.CharField(null=True, blank=True, choices=MealChoices.choices, max_length=12)
 
-    requests = models.TextField(default='', help_text='Allergies and special requests')
+    requests = models.TextField(default='', blank=True, help_text='Allergies and special requests')
 
     phone = PhoneNumberField(blank=True, null=True, help_text='Needs "+1" and then 10 digit, ie +17165554444')
 
