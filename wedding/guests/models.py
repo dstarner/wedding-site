@@ -55,7 +55,7 @@ class Party(models.Model):
     attending = models.IntegerField('# Attending', default=0)
     comments = models.TextField(null=True, blank=True)
 
-    code = models.CharField('Party Code', editable=False, unique=True, max_length=4, default='', help_text='Unique code that identifies the party')
+    code = models.CharField('Party Code', unique=True, max_length=4, default='', help_text='Unique code that identifies the party')
 
     class Meta:
         verbose_name_plural = 'Parties'
