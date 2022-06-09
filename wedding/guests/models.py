@@ -104,6 +104,9 @@ class MealChoices(models.TextChoices):
     STEAK = 'steak', 'steak'
     VEGGIE = 'vegetarian', 'Vegetarian Pasta'
 
+    KIDS_TENDERS = 'tenders', 'Kids: Chicken Tenders'
+    KIDS_MAC = 'macnche', 'Kids: Mac n Cheese'
+
 
 class Guest(models.Model):
 
