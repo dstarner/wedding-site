@@ -14,11 +14,11 @@
         <div class="flex-shrink w-full inline-block relative">
             <select required name="meal_{{ forloop.counter0|add:offset }}" value="{{ guest.meal }}" class="block appearance-none text-gray-600 w-full bg-white border border-gray-400 shadow-inner px-4 py-2 pr-8 rounded">
                 <option disabled {% if not guest.meal %}selected{% endif %} value>choose a meal ...</option>
-                <option value="chicken">Chicken</option>
-                <option value="steak">Steak</option>
-                <option value="vegetarian">Vegetarian Pasta</option>
-                <option value="tenders">Kids: Chicken Tenders</option>
-                <option value="macnche">Kids: Mac n Cheese</option>
+                <option value="chicken" {% if guest.meal == "chicken"%}selected{% endif %}>Chicken</option>
+                <option value="steak" {% if guest.meal == "steak"%}selected{% endif %}>Steak</option>
+                <option value="vegetarian" {% if guest.meal == "vegetarian"%}selected{% endif %}>Vegetarian Pasta</option>
+                <option value="tenders" {% if guest.meal == "tenders"%}selected{% endif %}>Kids: Chicken Tenders</option>
+                <option value="macnche" {% if guest.meal == "macnche"%}selected{% endif %}>Kids: Mac n Cheese</option>
             </select>
         </div>
     </div>

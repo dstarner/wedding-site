@@ -8,7 +8,6 @@ def rsvp_index(request):
         if len(code) != 4:
             return render(request, 'index.html', {'msg': 'Invalid code provided', 'code': code})
         party = Party.objects.filter(code=code).first()
-        print(code, party)
         if not party:
             return render(request, 'index.html', {'msg': 'Party not found', 'code': code})
         return redirect('rsvp-party', code=code)
