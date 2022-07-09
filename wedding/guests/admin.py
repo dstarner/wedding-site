@@ -49,7 +49,7 @@ class PartyAdmin(admin.ModelAdmin, ExportCsvMixin):
             'fields': ('contact_method', 'address', 'second_address', 'phone'),
         }),
         ('Logistics', {
-            'fields': ('save_the_date_sent', 'invitation_sent', 'attending', 'comments'),
+            'fields': ('save_the_date_sent', 'invitation_sent', 'rsvped', 'attending', 'comments'),
         }),
     )
     list_filter = (
