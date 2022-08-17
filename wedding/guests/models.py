@@ -101,7 +101,7 @@ def guest_picture_path(instance, filename):
 class MealChoices(models.TextChoices):
 
     CHICKEN = 'chicken', 'Chicken'
-    STEAK = 'steak', 'steak'
+    STEAK = 'steak', 'Steak'
     VEGGIE = 'vegetarian', 'Vegetarian Pasta'
 
     KIDS_TENDERS = 'tenders', 'Kids: Chicken Tenders'
